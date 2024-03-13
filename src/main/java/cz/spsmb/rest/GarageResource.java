@@ -1,5 +1,7 @@
 package cz.spsmb.rest;
 
+import cz.spsmb.dao.GarageRepository;
+import cz.spsmb.model.Garage;
 import cz.spsmb.model.Person;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -10,19 +12,19 @@ import cz.spsmb.dao.PersonRepository;
 
 import java.util.List;
 
-@Path("/persons")
-public class PersonResource {
+@Path("/garages")
+public class GarageResource {
 
     @Inject
-    PersonRepository personRepository;
+    GarageRepository garageRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response list() {
-        List<Person> persons = personRepository.listAll();
-        return Response.ok().entity(persons).build();
+        List<Garage> garages = garageRepository.listAll();
+        return Response.ok().entity(garages).build();
     }
 
     @GET
@@ -30,8 +32,8 @@ public class PersonResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{id}")
     public Response getById(@PathParam("id") Long id) {
-        Person person = personRepository.findById(id);
-        return Response.ok().entity(person).build();
+        Garage garage = garageRepository.findById(id);
+        return Response.ok().entity(garage).build();
     }
 
     @DELETE
@@ -39,7 +41,7 @@ public class PersonResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{id}")
     public Response deleteById(@PathParam("id") Long id) {
-        personRepository.deleteById(id);
+        garageRepository.deleteById(id);
         return Response.ok().entity("ok").build();
     }
 
@@ -47,13 +49,13 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response save(Person person) {
-        person.setId(0l);
-        if (person.getName() != null && person.getAge() > 0) {
-            personRepository.persist(person);
+    public Response save(Garage garage) {
+        garage.setId(0l);
+        if (garage.getUlice() != null && garage.getCisloPopisne() > 0) {
+            garageRepository.persist(garage);
             return Response.ok().entity("ok").build();
         } else {
-            return Response.status(400).entity("Person must have attributes \"name\" and \"age\".").build();
+            return Response.status(400).entity("Person must have attributes.").build();
         }
 
     }
