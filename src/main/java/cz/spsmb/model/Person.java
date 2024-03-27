@@ -54,12 +54,30 @@ public class Person implements Serializable {
         this.age = age;
     }
 
+    public List<Car> getCar() {
+        return car;
+    }
+
+    public void setCar(List<Car> car) {
+        this.car = car;
+    }
+
+    public Garage getGarage() {
+        return garage;
+    }
+
+    public void setGarage(Garage garage) {
+        this.garage = garage;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", car=" + car +
+                ", garage=" + garage +
                 '}';
     }
 }

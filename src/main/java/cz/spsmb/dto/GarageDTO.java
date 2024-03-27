@@ -2,7 +2,7 @@ package cz.spsmb.dto;
 
 public class GarageDTO {
     String ulice;
-    String cisloPopisne;
+    int cisloPopisne;
     String person;
 
     public String getUlice() {
@@ -13,11 +13,11 @@ public class GarageDTO {
         this.ulice = ulice;
     }
 
-    public String getCisloPopisne() {
+    public int getCisloPopisne() {
         return cisloPopisne;
     }
 
-    public void setCisloPopisne(String cisloPopisne) {
+    public void setCisloPopisne(int cisloPopisne) {
         this.cisloPopisne = cisloPopisne;
     }
 

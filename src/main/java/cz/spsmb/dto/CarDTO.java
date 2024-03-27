@@ -3,8 +3,8 @@ package cz.spsmb.dto;
 public class CarDTO {
     String brand;
     String model;
-    String yearOfManufacture;
-    String price;
+    int yearOfManufacture;
+    int price;
     String person;
 
     public String getBrand() {
@@ -23,19 +23,19 @@ public class CarDTO {
         this.model = model;
     }
 
-    public String getYearOfManufacture() {
+    public int getYearOfManufacture() {
         return yearOfManufacture;
     }
 
-    public void setYearOfManufacture(String yearOfManufacture) {
+    public void setYearOfManufacture(int yearOfManufacture) {
         this.yearOfManufacture = yearOfManufacture;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

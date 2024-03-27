@@ -46,12 +46,21 @@ public class Garage implements Serializable {
         this.cisloPopisne = cisloPopisne;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public String toString() {
         return "Garage{" +
                 "id=" + id +
                 ", ulice='" + ulice + '\'' +
                 ", cisloPopisne=" + cisloPopisne +
+                ", person=" + person +
                 '}';
     }
 }
